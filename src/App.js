@@ -5,15 +5,9 @@ import QuotesPage from './components/QuotesPage';
 const App = () => {
   return (
     <BrowserRouter>
-      <main /*style={{
-        background: `url(${bgImage}) 50%/cover no-repeat`,
-        minHeight: '100vh',
-      }}*/
-      >
-        <Routes>
-          <Route path='/' element={<QuotesPage />} />
-        </Routes>
-      </main>
+      <Routes>
+        <Route path='/' element={<QuotesPage />} />
+      </Routes>
     </BrowserRouter>
   );
 };
