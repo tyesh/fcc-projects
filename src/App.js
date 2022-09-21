@@ -1,8 +1,21 @@
 import React from 'react';
-import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import QuotesPage from './components/QuotesPage';
 
 const App = () => {
-  return <div>App</div>;
+  return (
+    <BrowserRouter>
+      <main /*style={{
+        background: `url(${bgImage}) 50%/cover no-repeat`,
+        minHeight: '100vh',
+      }}*/
+      >
+        <Routes>
+          <Route path='/' element={<QuotesPage />} />
+        </Routes>
+      </main>
+    </BrowserRouter>
+  );
 };
 
 export default App;
