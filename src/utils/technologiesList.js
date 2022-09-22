@@ -1,3 +1,80 @@
+import pottery from '../resources/pottery.webp';
+import animalhusbandry from '../resources/animalhusbandry.webp';
+import sailing from '../resources/sailing.webp';
+import astrology from '../resources/astrology.webp';
+import irrigation from '../resources/irrigation.webp';
+import writing from '../resources/writing.webp';
+import archery from '../resources/archery.webp';
+import masonry from '../resources/masonry.webp';
+import bronzeworkin from '../resources/bronzeworkin.webp';
+import wheel from '../resources/wheel.webp';
+import celestialnavigation from '../resources/celestialnavigation.webp';
+import currency from '../resources/currency.webp';
+import horsebackriding from '../resources/horsebackriding.webp';
+import ironworking from '../resources/ironworking.webp';
+import shipbuilding from '../resources/shipbuilding.webp';
+import mathematics from '../resources/mathematics.webp';
+import construction from '../resources/construction.webp';
+import engineering from '../resources/engineering.webp';
+import militarytactics from '../resources/militarytactics.webp';
+import buttress from '../resources/buttress.webp';
+import apprenticeship from '../resources/apprenticeship.webp';
+import stirrups from '../resources/stirrups.webp';
+import machinery from '../resources/machinery.webp';
+import education from '../resources/education.webp';
+import militaryengineering from '../resources/militaryengineering.webp';
+import castles from '../resources/castles.webp';
+import cartography from '../resources/cartography.webp';
+import massproduction from '../resources/massproduction.webp';
+import banking from '../resources/banking.webp';
+import gunpowder from '../resources/gunpowder.webp';
+import printing from '../resources/printing.webp';
+import squarerigging from '../resources/squarerigging.webp';
+import astronomy from '../resources/astronomy.webp';
+import metalcasting from '../resources/metalcasting.webp';
+import siegetactics from '../resources/siegetactics.webp';
+import industrialization from '../resources/industrialization.webp';
+import scientifictheory from '../resources/scientifictheory.webp';
+import mining from '../resources/mining.webp';
+import ballistics from '../resources/ballistics.webp';
+import militaryscience from '../resources/militaryscience.webp';
+import steampower from '../resources/steampower.webp';
+import economics from '../resources/economics.webp';
+import rifling from '../resources/rifling.webp';
+import flight from '../resources/flight.webp';
+import replaceableparts from '../resources/replaceableparts.webp';
+import steel from '../resources/steel.webp';
+import refining from '../resources/refining.webp';
+import electricity from '../resources/electricity.webp';
+import radio from '../resources/radio.webp';
+import chemistry from '../resources/chemistry.webp';
+import sanitation from '../resources/sanitation.webp';
+import advancedflight from '../resources/advancedflight.webp';
+import rocketry from '../resources/rocketry.webp';
+import advancedballistics from '../resources/advancedballistics.webp';
+import combinedarms from '../resources/combinedarms.webp';
+import plastics from '../resources/plastics.webp';
+import computers from '../resources/computers.webp';
+import nuclearfission from '../resources/nuclearfission.webp';
+import syntheticmaterials from '../resources/syntheticmaterials.webp';
+import telecommunications from '../resources/telecommunications.webp';
+import guidancesystems from '../resources/guidancesystems.webp';
+import lasers from '../resources/lasers.webp';
+import stealthtechnology from '../resources/stealthtechnology.webp';
+import robotics from '../resources/robotics.webp';
+import nuclearfusion from '../resources/nuclearfusion.webp';
+import nanotechnology from '../resources/nanotechnology.webp';
+import futuretech from '../resources/futuretech.webp';
+import advancedai from '../resources/advancedai.webp';
+import advancedpowercells from '../resources/advancedpowercells.webp';
+import cybernetics from '../resources/cybernetics.webp';
+import offworldmission from '../resources/offworldmission.webp';
+import predictivesystems from '../resources/predictivesystems.webp';
+import seasteads from '../resources/seasteads.webp';
+import smartmaterials from '../resources/smartmaterials.webp';
+import composites from '../resources/composites.webp';
+import satellites from '../resources/satellites.webp';
+
 const technologiesList = [
   {
     name: 'Pottery',
@@ -12,6 +89,7 @@ const technologiesList = [
         author: 'Janet Fitch',
       },
     ],
+    image: pottery,
   },
   {
     name: 'Animal Husbandry',
@@ -27,6 +105,7 @@ const technologiesList = [
         author: 'Winston S. Churchill',
       },
     ],
+    image: animalhusbandry,
   },
   {
     name: 'Mining',
@@ -40,6 +119,7 @@ const technologiesList = [
         author: 'Will Rogers',
       },
     ],
+    image: mining,
   },
   {
     name: 'Sailing',
@@ -55,6 +135,7 @@ const technologiesList = [
         author: 'Sir Francis Drake',
       },
     ],
+    image: sailing,
   },
   {
     name: 'Astrology',
@@ -70,6 +151,7 @@ const technologiesList = [
         author: 'Hippocrates',
       },
     ],
+    image: astrology,
   },
   {
     name: 'Irrigation',
@@ -84,6 +166,7 @@ const technologiesList = [
         author: 'Sir John Thomson',
       },
     ],
+    image: irrigation,
   },
   {
     name: 'Writing',
@@ -99,6 +182,7 @@ const technologiesList = [
         author: 'Mark Twain',
       },
     ],
+    image: writing,
   },
   {
     name: 'Archery',
@@ -114,6 +198,7 @@ const technologiesList = [
         author: 'George Carlin',
       },
     ],
+    image: archery,
   },
   {
     name: 'Masonry',
@@ -129,6 +214,7 @@ const technologiesList = [
         author: 'William Shakespeare',
       },
     ],
+    image: masonry,
   },
   {
     name: 'Bronze Workin',
@@ -143,6 +229,7 @@ const technologiesList = [
         author: 'Richard MacDonald',
       },
     ],
+    image: bronzeworkin,
   },
   {
     name: 'Wheel',
@@ -156,6 +243,7 @@ const technologiesList = [
         author: "Anthony D'Angelo",
       },
     ],
+    image: wheel,
   },
   {
     name: 'Celestial Navigation',
@@ -170,6 +258,7 @@ const technologiesList = [
         author: 'Omar Bradley',
       },
     ],
+    image: celestialnavigation,
   },
   {
     name: 'Currency',
@@ -185,6 +274,7 @@ const technologiesList = [
         author: 'Helen Gurley Brown',
       },
     ],
+    image: currency,
   },
   {
     name: 'Horseback Riding',
@@ -199,6 +289,7 @@ const technologiesList = [
         author: 'John Steinbeck',
       },
     ],
+    image: horsebackriding,
   },
   {
     name: 'Iron Working',
@@ -214,6 +305,7 @@ const technologiesList = [
         author: 'Mark Twain',
       },
     ],
+    image: ironworking,
   },
   {
     name: 'Shipbuilding',
@@ -228,6 +320,7 @@ const technologiesList = [
         author: 'Thomas Gibbons',
       },
     ],
+    image: shipbuilding,
   },
   {
     name: 'Mathematics',
@@ -243,6 +336,7 @@ const technologiesList = [
         author: 'Galileo Galilei',
       },
     ],
+    image: mathematics,
   },
   {
     name: 'Construction',
@@ -257,12 +351,13 @@ const technologiesList = [
         author: 'Dave Barry',
       },
     ],
+    image: construction,
   },
   {
     name: 'Engineering',
     quotes: [
       {
-        quote: "WOne man's 'magic' is another man's engineering.\"",
+        quote: "One man's 'magic' is another man's engineering.\"",
         author: '',
       },
       {
@@ -271,6 +366,7 @@ const technologiesList = [
         author: 'Scott Adams',
       },
     ],
+    image: engineering,
   },
   {
     name: 'Military Tactics',
@@ -284,6 +380,7 @@ const technologiesList = [
         author: 'Max Euwe',
       },
     ],
+    image: militarytactics,
   },
   {
     name: 'Buttress',
@@ -299,6 +396,7 @@ const technologiesList = [
         author: 'Revelation 3:12',
       },
     ],
+    image: buttress,
   },
   {
     name: 'Apprenticeship',
@@ -314,6 +412,7 @@ const technologiesList = [
         author: 'Lemony Snicket',
       },
     ],
+    image: apprenticeship,
   },
   {
     name: 'Stirrups',
@@ -329,6 +428,7 @@ const technologiesList = [
         author: 'William Camden',
       },
     ],
+    image: stirrups,
   },
   {
     name: 'Machinery',
@@ -343,6 +443,7 @@ const technologiesList = [
         author: 'Gregory Benford',
       },
     ],
+    image: machinery,
   },
   {
     name: 'Education',
@@ -358,6 +459,7 @@ const technologiesList = [
         author: 'Aristotle',
       },
     ],
+    image: education,
   },
   {
     name: 'Military Engineering',
@@ -372,6 +474,7 @@ const technologiesList = [
         author: 'Bernard Montgomery',
       },
     ],
+    image: militaryengineering,
   },
   {
     name: 'Castles',
@@ -387,6 +490,7 @@ const technologiesList = [
         author: 'Mehmet Murat Ildan',
       },
     ],
+    image: castles,
   },
   {
     name: 'Cartography',
@@ -401,6 +505,7 @@ const technologiesList = [
         author: 'J.R.R. Tolkien',
       },
     ],
+    image: cartography,
   },
   {
     name: 'Mass Production',
@@ -412,10 +517,11 @@ const technologiesList = [
       },
       {
         quote:
-          'WWhat can be labeled, packaged, mass produced is neither truth nor art."',
+          'What can be labeled, packaged, mass produced is neither truth nor art."',
         author: 'Marty Rubin',
       },
     ],
+    image: massproduction,
   },
   {
     name: 'Banking',
@@ -431,6 +537,7 @@ const technologiesList = [
         author: 'Steven Wright',
       },
     ],
+    image: banking,
   },
   {
     name: 'Gunpowder',
@@ -445,6 +552,7 @@ const technologiesList = [
         author: 'Philip Bailey',
       },
     ],
+    image: gunpowder,
   },
   {
     name: 'Printing',
@@ -460,6 +568,7 @@ const technologiesList = [
         author: 'Wendell Phillips',
       },
     ],
+    image: printing,
   },
   {
     name: 'Square Rigging',
@@ -475,6 +584,7 @@ const technologiesList = [
         author: 'English Proverb',
       },
     ],
+    image: squarerigging,
   },
   {
     name: 'Astronomy',
@@ -489,6 +599,7 @@ const technologiesList = [
         author: 'Brian May',
       },
     ],
+    image: astronomy,
   },
   {
     name: 'Metal Casting',
@@ -504,6 +615,7 @@ const technologiesList = [
         author: 'Rick Riordan',
       },
     ],
+    image: metalcasting,
   },
   {
     name: 'Siege Tactics',
@@ -518,6 +630,7 @@ const technologiesList = [
         author: 'Miles Cameron',
       },
     ],
+    image: siegetactics,
   },
   {
     name: 'Industrialization',
@@ -533,6 +646,7 @@ const technologiesList = [
         author: 'E.F. Schumacher',
       },
     ],
+    image: industrialization,
   },
   {
     name: 'Scientific Theory',
@@ -547,6 +661,7 @@ const technologiesList = [
         author: 'Albert Einstein',
       },
     ],
+    image: scientifictheory,
   },
   {
     name: 'Ballistics',
@@ -562,6 +677,7 @@ const technologiesList = [
         author: 'Adam Savage',
       },
     ],
+    image: ballistics,
   },
   {
     name: 'Military Science',
@@ -577,6 +693,7 @@ const technologiesList = [
         author: 'Karl von Clausewitz',
       },
     ],
+    image: militaryscience,
   },
   {
     name: 'Steam Power',
@@ -592,6 +709,7 @@ const technologiesList = [
         author: 'Lawrence Henderson',
       },
     ],
+    image: steampower,
   },
   {
     name: 'Sanitation',
@@ -607,6 +725,7 @@ const technologiesList = [
         author: 'Graham Chapman',
       },
     ],
+    image: sanitation,
   },
   {
     name: 'Economics',
@@ -622,6 +741,7 @@ const technologiesList = [
         author: 'Margaret Thatcher',
       },
     ],
+    image: economics,
   },
   {
     name: 'Rifling',
@@ -636,6 +756,7 @@ const technologiesList = [
         author: 'The 2nd Target Company',
       },
     ],
+    image: rifling,
   },
   {
     name: 'Flight',
@@ -651,6 +772,7 @@ const technologiesList = [
         author: 'Chuck Yeager',
       },
     ],
+    image: flight,
   },
   {
     name: 'Replaceable Parts',
@@ -666,6 +788,7 @@ const technologiesList = [
         author: 'B.J. Palmer',
       },
     ],
+    image: replaceableparts,
   },
   {
     name: 'Steel',
@@ -680,6 +803,7 @@ const technologiesList = [
         author: 'Benjamin Franklin',
       },
     ],
+    image: steel,
   },
   {
     name: 'Refining',
@@ -690,6 +814,7 @@ const technologiesList = [
         author: 'Thomas Tredgold',
       },
     ],
+    image: refining,
   },
   {
     name: 'Electricity',
@@ -705,6 +830,7 @@ const technologiesList = [
         author: 'Earl Wilson',
       },
     ],
+    image: electricity,
   },
   {
     name: 'Radio',
@@ -719,6 +845,7 @@ const technologiesList = [
         author: 'Steve Allen',
       },
     ],
+    image: radio,
   },
   {
     name: 'Chemistry',
@@ -733,6 +860,7 @@ const technologiesList = [
         author: 'Sir William Crookes',
       },
     ],
+    image: chemistry,
   },
   {
     name: 'Advanced Flight',
@@ -748,6 +876,7 @@ const technologiesList = [
         author: 'George Winters',
       },
     ],
+    image: advancedflight,
   },
   {
     name: 'Rocketry',
@@ -763,6 +892,7 @@ const technologiesList = [
         author: 'Michael P. Anderson',
       },
     ],
+    image: rocketry,
   },
   {
     name: 'Advanced Ballistics',
@@ -777,6 +907,7 @@ const technologiesList = [
         author: 'W. Clement Stone',
       },
     ],
+    image: advancedballistics,
   },
   {
     name: 'Combined Arms',
@@ -790,6 +921,7 @@ const technologiesList = [
         author: 'B.H. Liddell Hart',
       },
     ],
+    image: combinedarms,
   },
   {
     name: 'Plastics',
@@ -804,6 +936,7 @@ const technologiesList = [
         author: 'Patricia Dunn',
       },
     ],
+    image: plastics,
   },
   {
     name: 'Computers',
@@ -819,6 +952,7 @@ const technologiesList = [
         author: 'Ted Nelson',
       },
     ],
+    image: computers,
   },
   {
     name: 'Nuclear Fission',
@@ -833,6 +967,7 @@ const technologiesList = [
         author: 'E.Y. Harburg',
       },
     ],
+    image: nuclearfission,
   },
   {
     name: 'Synthetic Materials',
@@ -848,6 +983,7 @@ const technologiesList = [
         author: 'Joe Hill',
       },
     ],
+    image: syntheticmaterials,
   },
   {
     name: 'Telecommunications',
@@ -862,6 +998,7 @@ const technologiesList = [
         author: 'George Bernard Shaw',
       },
     ],
+    image: telecommunications,
   },
   {
     name: 'Satellites',
@@ -876,6 +1013,7 @@ const technologiesList = [
         author: 'Ed Burnette',
       },
     ],
+    image: satellites,
   },
   {
     name: 'Guidance Systems',
@@ -890,6 +1028,7 @@ const technologiesList = [
         author: 'Isabelle Fuhrman',
       },
     ],
+    image: guidancesystems,
   },
   {
     name: 'Lasers',
@@ -905,6 +1044,7 @@ const technologiesList = [
         author: 'Courteney Cox',
       },
     ],
+    image: lasers,
   },
   {
     name: 'Composites',
@@ -920,6 +1060,7 @@ const technologiesList = [
         author: 'Herbert Hoover',
       },
     ],
+    image: composites,
   },
   {
     name: 'Stealth Technology',
@@ -935,6 +1076,7 @@ const technologiesList = [
         author: 'Patti Smith',
       },
     ],
+    image: stealthtechnology,
   },
   {
     name: 'Robotics',
@@ -949,6 +1091,7 @@ const technologiesList = [
         author: 'Unknown',
       },
     ],
+    image: robotics,
   },
   {
     name: 'Nuclear Fusion',
@@ -964,6 +1107,7 @@ const technologiesList = [
         author: 'Carl Sagan',
       },
     ],
+    image: nuclearfusion,
   },
   {
     name: 'Nanotechnology',
@@ -979,6 +1123,7 @@ const technologiesList = [
         author: 'Matt Spire',
       },
     ],
+    image: nanotechnology,
   },
   {
     name: 'Future Tech',
@@ -993,6 +1138,7 @@ const technologiesList = [
         author: 'Mattie Stepanek',
       },
     ],
+    image: futuretech,
   },
   {
     name: 'Advanced AI',
@@ -1003,6 +1149,7 @@ const technologiesList = [
         author: 'Mary Shelley',
       },
     ],
+    image: advancedai,
   },
   {
     name: 'Advanced Power Cells',
@@ -1013,6 +1160,7 @@ const technologiesList = [
         author: 'Tao Te Ching, Lao Tzu',
       },
     ],
+    image: advancedpowercells,
   },
   {
     name: 'Cybernetics',
@@ -1023,6 +1171,7 @@ const technologiesList = [
         author: 'Inscription on an Egyptian Ushabti',
       },
     ],
+    image: cybernetics,
   },
   {
     name: 'Offworld Mission',
@@ -1038,6 +1187,7 @@ const technologiesList = [
         author: 'Francis Godwin',
       },
     ],
+    image: offworldmission,
   },
   {
     name: 'Predictive Systems',
@@ -1048,6 +1198,7 @@ const technologiesList = [
         author: 'Sun Tzu',
       },
     ],
+    image: predictivesystems,
   },
   {
     name: 'Seasteads',
@@ -1063,6 +1214,7 @@ const technologiesList = [
         author: 'Rudyard Kipling',
       },
     ],
+    image: seasteads,
   },
   {
     name: 'Smart Materials',
@@ -1073,6 +1225,7 @@ const technologiesList = [
         author: 'Hermes Trismegistus',
       },
     ],
+    image: smartmaterials,
   },
 ];
 

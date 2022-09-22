@@ -1,11 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Card, Col, Container, Image, Row } from 'react-bootstrap';
 import bgImage from '../resources/quotebg.jpg';
-import potteryImage from '../resources/pottery.webp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faTumblr } from '@fortawesome/free-brands-svg-icons';
+import { getRandomQuote, getRandomTechnology } from '../utils/helpers';
 
 const QuotesPage = () => {
+  const [technology, setTechnology] = useState();
+  const [quote, setQuote] = useState();
+
+  const getTechnology = () => {
+    setTechnology(getRandomTechnology());
+  };
+
+  useEffect(() => {
+    setTechnology(getRandomTechnology());
+  }, []);
+
+  useEffect(() => {
+    if (technology) {
+      setQuote(getRandomQuote(technology));
+    }
+  }, [technology]);
+
   return (
     <main
       style={{
@@ -36,59 +53,66 @@ const QuotesPage = () => {
               game, is a joy to hear the quote of every new technology
               discovered!
             </p>
-            <Card>
-              <Card.Header>
-                <h2>Pottery</h2>
-              </Card.Header>
-              <Card.Body>
-                <Row>
-                  <Col xs={12} md={3}>
-                    <Image src={potteryImage} alt='pottery' fluid />
-                  </Col>
-                  <Col>
-                    <blockquote className='blockquote mb-0'>
-                      <p>
-                        "No man ever wetted clay and then left it, as if there
-                        would be bricks by chance and fortune."
-                      </p>
-                      <footer className='blockquote-footer'>Plutarch</footer>
-                    </blockquote>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col xs={6} className='py-3'>
-                    <a
-                      href='https://twitter.com/'
-                      target='_blank'
-                      rel='noreferrer'
-                      className='mx-1'
-                      style={{ backgroundColor: '#00acee', padding: 10 }}
-                    >
-                      <FontAwesomeIcon
-                        icon={faTwitter}
-                        color='#fff'
-                        size='lg'
-                      />
-                    </a>
-                    <a
-                      href='https://twitter.com/'
-                      target='_blank'
-                      rel='noreferrer'
-                      className='mx-1'
-                      style={{
-                        backgroundColor: '#34526f',
-                        padding: '10px 14px',
-                      }}
-                    >
-                      <FontAwesomeIcon icon={faTumblr} color='#fff' size='lg' />
-                    </a>
-                  </Col>
-                  <Col xs={6} className='d-flex justify-content-end py-2'>
-                    <Button variant='dark'>New quote</Button>
-                  </Col>
-                </Row>
-              </Card.Body>
-            </Card>
+            {technology && quote && (
+              <Card>
+                <Card.Header>
+                  <h2>{technology.name}</h2>
+                </Card.Header>
+                <Card.Body>
+                  <Row>
+                    <Col xs={12} md={3}>
+                      <Image src={technology.image} alt='pottery' fluid />
+                    </Col>
+                    <Col>
+                      <blockquote className='blockquote mb-0'>
+                        <p>{quote.quote}</p>
+                        <footer className='blockquote-footer'>
+                          {quote.author}
+                        </footer>
+                      </blockquote>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col xs={6} className='py-3'>
+                      <a
+                        href='https://twitter.com/'
+                        target='_blank'
+                        rel='noreferrer'
+                        className='mx-1'
+                        style={{ backgroundColor: '#00acee', padding: 10 }}
+                      >
+                        <FontAwesomeIcon
+                          icon={faTwitter}
+                          color='#fff'
+                          size='lg'
+                        />
+                      </a>
+                      <a
+                        href='https://twitter.com/'
+                        target='_blank'
+                        rel='noreferrer'
+                        className='mx-1'
+                        style={{
+                          backgroundColor: '#34526f',
+                          padding: '10px 14px',
+                        }}
+                      >
+                        <FontAwesomeIcon
+                          icon={faTumblr}
+                          color='#fff'
+                          size='lg'
+                        />
+                      </a>
+                    </Col>
+                    <Col xs={6} className='d-flex justify-content-end py-2'>
+                      <Button variant='dark' onClick={getTechnology}>
+                        New quote
+                      </Button>
+                    </Col>
+                  </Row>
+                </Card.Body>
+              </Card>
+            )}
           </Col>
         </Row>
       </Container>
