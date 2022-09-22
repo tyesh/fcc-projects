@@ -1,8 +1,9 @@
 import React from 'react';
-import { Card, Col, Container, Image, Row } from 'react-bootstrap';
+import { Button, Card, Col, Container, Image, Row } from 'react-bootstrap';
 import bgImage from '../resources/quotebg.jpg';
 import potteryImage from '../resources/pottery.webp';
-import { SocialIcon } from 'react-social-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTwitter, faTumblr } from '@fortawesome/free-brands-svg-icons';
 
 const QuotesPage = () => {
   return (
@@ -55,12 +56,35 @@ const QuotesPage = () => {
                   </Col>
                 </Row>
                 <Row>
-                  <Col xs={6} className='py-2'>
-                    <SocialIcon
-                      className='m-2'
-                      url='https://twitter.com/intent/tweet'
-                    />
-                    <SocialIcon className='m-2' network='tumblr' />
+                  <Col xs={6} className='py-3'>
+                    <a
+                      href='https://twitter.com/'
+                      target='_blank'
+                      rel='noreferrer'
+                      className='mx-1'
+                      style={{ backgroundColor: '#00acee', padding: 10 }}
+                    >
+                      <FontAwesomeIcon
+                        icon={faTwitter}
+                        color='#fff'
+                        size='lg'
+                      />
+                    </a>
+                    <a
+                      href='https://twitter.com/'
+                      target='_blank'
+                      rel='noreferrer'
+                      className='mx-1'
+                      style={{
+                        backgroundColor: '#34526f',
+                        padding: '10px 14px',
+                      }}
+                    >
+                      <FontAwesomeIcon icon={faTumblr} color='#fff' size='lg' />
+                    </a>
+                  </Col>
+                  <Col xs={6} className='d-flex justify-content-end py-2'>
+                    <Button variant='dark'>New quote</Button>
                   </Col>
                 </Row>
               </Card.Body>
