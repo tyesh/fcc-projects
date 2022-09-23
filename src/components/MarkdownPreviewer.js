@@ -3,6 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFreeCodeCamp } from '@fortawesome/free-brands-svg-icons';
 import { faMaximize } from '@fortawesome/free-solid-svg-icons';
+import { marked } from 'marked';
 import bgImage from '../resources/bg/markdownbg.jpg';
 
 const placeholder = `# Welcome to my React Markdown Previewer!
@@ -52,6 +53,13 @@ And here. | Okay. | I think we get it.
 
 const MarkdownPreviewer = () => {
   const [markdown, setMarkdown] = useState(placeholder);
+
+  marked.setOptions({
+    breaks: true,
+  });
+
+  const renderer = new marked.Renderer();
+
   return (
     <main
       style={{
@@ -89,6 +97,12 @@ const MarkdownPreviewer = () => {
                 Previewer
                 <FontAwesomeIcon icon={faMaximize} color='#000' />
               </div>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: marked(markdown, { renderer: renderer }),
+                }}
+                id='preview'
+              />
             </div>
           </Col>
         </Row>
