@@ -1,4 +1,82 @@
+/* Variables */
+:root {
+  /* Colores en  base a https://flatuicolors.com/palette/defo */
+  --turquoise: #1abc9c;
+  --green-sea: #16a085;
+  --emerald: #2ecc71;
+  --nephritis: #27ae60;
+  --peter-river: #3498db;
+  --belize-hole: #2980b9;
+  --amethyst: #9b59b6;
+  --wisteria: #8e44ad;
+  --wet-asphalt: #34495e;
+  --midnight-blue: #2c3e50;
+  --sun-flower: #f1c40f;
+  --orange: #f39c12;
+  --carrot: #e67e22;
+  --pumpkin: #d35400;
+  --alizarin: #e74c3c;
+  --pomegranate: #c0392b;
+  --clouds: #ecf0f1;
+  --silver: #bdc3c7;
+  --concrete: #95a5a6;
+  --asbestos: #7f8c8d;
+}
+
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+.colorScheme {
+  background-color: lighten(var(--lightAccent), 30%);
+  border: 1px 1px 10px 2px darken(var(--backgroundBase), 20%);
+  box-shadow: 1px solid darken(var(--backgroundBase), 35%);
+  border-top: none;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  padding: 0.3rem;
+  color: var(--wet-asphalt);
+  background-color: var(--clouds);
+  border: 1px solid #000;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.toolbar:last-child {
+  display: flex;
+  align-items: flex-end;
+}
+
+.toolbar i {
+  width: 25px;
+  margin-left: 5px;
+}
+
+.editorWrap {
+  max-width: 600px;
+  margin: 1.125rem auto;
+}
+
+.editorWrap .toolbar {
+  width: 99%;
+}
+
+.editorWrap textarea {
+  color: var(--emerald);
+  background-color: var(--midnight-blue);
+  border: 1px solid #000;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  border-top: none;
+  width: 99%;
+  min-height: 200px;
+  margin-bottom: -5px;
+  resize: vertical;
+  outline: none;
+  padding-left: 5px;
+  padding-top: 5px;
+  font-size: 0.875rem;
 }
