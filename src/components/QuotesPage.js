@@ -54,7 +54,7 @@ const QuotesPage = () => {
               discovered!
             </p>
             {technology && quote && (
-              <Card>
+              <Card id='quote-box'>
                 <Card.Header>
                   <h2>{technology.name}</h2>
                 </Card.Header>
@@ -64,9 +64,9 @@ const QuotesPage = () => {
                       <Image src={technology.image} alt='pottery' fluid />
                     </Col>
                     <Col>
-                      <blockquote className='blockquote mb-0'>
+                      <blockquote className='blockquote mb-0' id='text'>
                         <p>{quote.quote}</p>
-                        <footer className='blockquote-footer'>
+                        <footer className='blockquote-footer' id='author'>
                           {quote.author}
                         </footer>
                       </blockquote>
@@ -75,11 +75,14 @@ const QuotesPage = () => {
                   <Row>
                     <Col xs={6} className='py-3'>
                       <a
-                        href='https://twitter.com/'
+                        href={`https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=${encodeURIComponent(
+                          quote.quote + ' ' + quote.author
+                        )}`}
                         target='_blank'
                         rel='noreferrer'
                         className='mx-1'
                         style={{ backgroundColor: '#00acee', padding: 10 }}
+                        id='tweet-quote'
                       >
                         <FontAwesomeIcon
                           icon={faTwitter}
@@ -88,7 +91,11 @@ const QuotesPage = () => {
                         />
                       </a>
                       <a
-                        href='https://twitter.com/'
+                        href={`https://www.tumblr.com/widgets/share/tool?posttype=quote&tags=quotes,freecodecamp&caption=${encodeURIComponent(
+                          quote.author
+                        )}&content=${encodeURIComponent(
+                          quote.quote
+                        )}&canonicalUrl=https%3A%2F%2Fwww.tumblr.com%2Fbuttons&shareSource=tumblr_share_button`}
                         target='_blank'
                         rel='noreferrer'
                         className='mx-1'
@@ -105,7 +112,11 @@ const QuotesPage = () => {
                       </a>
                     </Col>
                     <Col xs={6} className='d-flex justify-content-end py-2'>
-                      <Button variant='dark' onClick={getTechnology}>
+                      <Button
+                        variant='dark'
+                        onClick={getTechnology}
+                        id='new-quote'
+                      >
                         New quote
                       </Button>
                     </Col>
