@@ -97,12 +97,24 @@
   padding: 0 1rem;
 }
 
+#preview blockquote {
+  border-left: 3px solid #224b4b;
+  color: #224b4b;
+  padding-left: 5px;
+  margin-left: 25px;
+}
+
+#preview > p > code {
+  padding: 3px;
+}
+
 #preview pre {
   display: block;
   overflow: auto;
-  background: white;
+  background: var(--silver);
   padding: 5px;
   line-height: 1.2;
+  color: #000;
 }
 
 #preview h1 {
