@@ -20,7 +20,19 @@ const DrumMachine = () => {
           <Col xs={12} md={6} className='drum-machine'>
             <p className='text-end'>FCC</p>
             <Row>
-              <Col xs={6}>DrumMachine</Col>
+              <Col xs={6}>
+                <div className='keys-container'>
+                  <div className='key'>1</div>
+                  <div className='key'>1</div>
+                  <div className='key'>1</div>
+                  <div className='key'>1</div>
+                  <div className='key'>1</div>
+                  <div className='key'>1</div>
+                  <div className='key'>1</div>
+                  <div className='key'>1</div>
+                  <div className='key'>1</div>
+                </div>
+              </Col>
             </Row>
           </Col>
         </Row>

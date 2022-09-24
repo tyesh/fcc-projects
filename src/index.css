@@ -157,4 +157,27 @@
 
 .drum-machine {
   background-color: var(--silver);
+  padding: 10px;
+}
+
+.keys-container {
+  width: 100%;
+  background: var(--nephritis);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+
+.activeStyle {
+  background-color: 'orange';
+  box-shadow: '0 3px orange';
+  height: 77px;
+  margin-top: 13px;
+}
+
+.inactiveStyle {
+  background-color: 'grey';
+  margin-top: 10;
+  box-shadow: '3px 3px 5px black';
 }

@@ -357,8 +357,8 @@ const technologiesList = [
     name: 'Engineering',
     quotes: [
       {
-        quote: "One man's 'magic' is another man's engineering.\"",
-        author: '',
+        quote: "\"One man's 'magic' is another man's engineering.\"",
+        author: 'Robert Heinlein',
       },
       {
         quote:
