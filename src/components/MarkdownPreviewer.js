@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFreeCodeCamp } from '@fortawesome/free-brands-svg-icons';
-import { faMaximize } from '@fortawesome/free-solid-svg-icons';
+import { faMaximize, faMinimize } from '@fortawesome/free-solid-svg-icons';
 import { marked } from 'marked';
 import prismjs from 'prismjs';
 import bgImage from '../resources/bg/markdownbg.jpg';
@@ -55,6 +55,8 @@ And here. | Okay. | I think we get it.
 
 const MarkdownPreviewer = () => {
   const [markdown, setMarkdown] = useState(placeholder);
+  const [editorMax, setEditorMax] = useState(false);
+  const [previewerMax, setPrevierMax] = useState(false);
 
   marked.setOptions({
     breaks: true,
@@ -77,7 +79,10 @@ const MarkdownPreviewer = () => {
       <Container>
         <Row>
           <Col xs={12}>
-            <div className='editorWrap'>
+            <div
+              className={`editorWrap ${editorMax ? 'maximized' : ''}`}
+              hidden={previewerMax}
+            >
               <div className='toolbar'>
                 <FontAwesomeIcon
                   icon={faFreeCodeCamp}
@@ -85,7 +90,11 @@ const MarkdownPreviewer = () => {
                   className='mx-1'
                 />
                 Editor
-                <FontAwesomeIcon icon={faMaximize} color='#000' />
+                <FontAwesomeIcon
+                  icon={editorMax ? faMinimize : faMaximize}
+                  color='#000'
+                  onClick={() => setEditorMax(!editorMax)}
+                />
               </div>
               <textarea
                 id='editor'
@@ -94,7 +103,7 @@ const MarkdownPreviewer = () => {
                 value={markdown}
               />
             </div>
-            <div className='previewWrap' xs={12}>
+            <div className='previewWrap' xs={12} hidden={editorMax}>
               <div className='toolbar'>
                 <FontAwesomeIcon
                   icon={faFreeCodeCamp}
@@ -102,7 +111,11 @@ const MarkdownPreviewer = () => {
                   className='mx-1'
                 />
                 Previewer
-                <FontAwesomeIcon icon={faMaximize} color='#000' />
+                <FontAwesomeIcon
+                  icon={previewerMax ? faMinimize : faMaximize}
+                  color='#000'
+                  onClick={() => setPrevierMax(!previewerMax)}
+                />
               </div>
               <div
                 dangerouslySetInnerHTML={{

@@ -52,9 +52,16 @@
   margin-left: 5px;
 }
 
-.toolbar .fa-maximize {
+.toolbar .fa-maximize,
+.toolbar .fa-minimize {
   margin-right: 0.25rem;
   margin-left: auto;
+}
+
+.toolbar .fa-maximize:hover,
+.toolbar .fa-minimize:hover {
+  color: var(--green-sea);
+  cursor: pointer;
 }
 
 .editorWrap {
@@ -92,6 +99,11 @@
   margin: 1.25rem auto;
   min-height: 200px;
   overflow-wrap: break-word;
+}
+
+.maximized textarea {
+  min-height: 95vh;
+  resize: none;
 }
 
 #preview {
