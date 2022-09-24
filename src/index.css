@@ -43,6 +43,7 @@
   color: var(--wet-asphalt);
   background-color: var(--clouds);
   border: 1px solid #000;
+  border-bottom: 0;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
@@ -111,10 +112,10 @@
 #preview pre {
   display: block;
   overflow: auto;
-  background: var(--silver);
+  background: #000;
   padding: 5px;
   line-height: 1.2;
-  color: #000;
+  color: #fff;
 }
 
 #preview h1 {

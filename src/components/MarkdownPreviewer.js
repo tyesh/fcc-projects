@@ -4,7 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFreeCodeCamp } from '@fortawesome/free-brands-svg-icons';
 import { faMaximize } from '@fortawesome/free-solid-svg-icons';
 import { marked } from 'marked';
+import prismjs from 'prismjs';
 import bgImage from '../resources/bg/markdownbg.jpg';
+import 'prismjs/themes/prism-tomorrow.css';
 
 const placeholder = `# Welcome to my React Markdown Previewer!
 
@@ -56,9 +58,14 @@ const MarkdownPreviewer = () => {
 
   marked.setOptions({
     breaks: true,
+    highlight: (code) =>
+      prismjs.highlight(code, prismjs.languages.javascript, 'javascript'),
   });
 
   const renderer = new marked.Renderer();
+  renderer.link = function (href, title, text) {
+    return `<a target="_blank" href="${href}">${text}</a>`;
+  };
 
   return (
     <main
