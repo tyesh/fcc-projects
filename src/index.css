@@ -21,6 +21,7 @@
   --silver: #bdc3c7;
   --concrete: #95a5a6;
   --asbestos: #7f8c8d;
+  --controls-height: 100px;
 }
 
 * {
@@ -155,29 +156,86 @@
   margin: 2rem auto;
 }
 
+/*Drum machine*/
+
+.title {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
 .drum-machine {
   background-color: var(--silver);
-  padding: 10px;
+  padding: 20px 10px;
+  border: 4px solid var(--belize-hole);
 }
 
 .keys-container {
   width: 100%;
-  background: var(--nephritis);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   grid-gap: 10px;
 }
 
+.key {
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+}
+
 .activeStyle {
-  background-color: 'orange';
-  box-shadow: '0 3px orange';
-  height: 77px;
-  margin-top: 13px;
+  background-color: var(--wet-asphalt);
+  color: var(--clouds);
 }
 
 .inactiveStyle {
-  background-color: 'grey';
-  margin-top: 10;
-  box-shadow: '3px 3px 5px black';
+  background-color: var(--asbestos);
+  color: var(--clouds);
+}
+
+.controls-container {
+  width: 100%;
+  height: var(--controls-height) * 3 + 32;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.control {
+  width: 100%;
+  margin: auto;
+}
+
+.control p {
+  font-weight: bold;
+}
+
+.outer-select {
+  margin: auto;
+  border: 1px solid black;
+  width: 50px;
+  height: 20px;
+  padding: 1px;
+  background-color: black;
+}
+
+.inner-select {
+  width: 23px;
+  height: 19px;
+  background: var(--peter-river);
+  border: 1px solid black;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+#display {
+  width: 200px;
+  background-color: gray;
+  margin: 15px auto;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 650px) {
+  .inner-container {
+    transform: scale(0.7);
+  }
 }
