@@ -1,17 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Col, Container, Form, Row } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFreeCodeCamp } from '@fortawesome/free-brands-svg-icons';
 import bgImage from '../resources/bg/drummachinebg.jpg';
+import { bankOne, bankTwo } from '../utils/constants';
 
 const DrumMachine = () => {
-  const powerSlider = true
+  const [power, setPower] = useState(true);
+  const [currentPadBank, setCurrentPadBank] = useState(bankOne);
+
+  const changePower = () => {
+    setPower((current) => !current);
+  };
+
+  const changeBank = () => {
+    setCurrentPadBank((current) => (current === bankOne ? bankTwo : bankOne));
+  };
+
+  const powerSlider = power
     ? {
         float: 'right',
       }
     : {
         float: 'left',
       };
+
+  const bankSlider =
+    currentPadBank === bankOne
+      ? {
+          float: 'right',
+        }
+      : {
+          float: 'left',
+        };
+
+  const Pads = () => {
+    return (
+      <>
+        {currentPadBank.map((pad) => (
+          <div key={pad.id} className='key inactiveStyle text-center'>
+            <audio className='clip' id={pad.keyTrigger} src={pad.url} />
+            {pad.keyTrigger}
+          </div>
+        ))}
+      </>
+    );
+  };
 
   return (
     <main
@@ -39,22 +73,14 @@ const DrumMachine = () => {
             <Row>
               <Col xs={12} md={6}>
                 <div className='keys-container'>
-                  <div className='key inactiveStyle text-center'>Q</div>
-                  <div className='key inactiveStyle text-center'>W</div>
-                  <div className='key inactiveStyle text-center'>E</div>
-                  <div className='key inactiveStyle text-center'>A</div>
-                  <div className='key inactiveStyle text-center'>S</div>
-                  <div className='key inactiveStyle text-center'>D</div>
-                  <div className='key inactiveStyle text-center'>Z</div>
-                  <div className='key inactiveStyle text-center'>X</div>
-                  <div className='key inactiveStyle text-center'>C</div>
+                  <Pads />
                 </div>
               </Col>
               <Col xs={12} md={6}>
                 <div className='controls-container'>
                   <div className='control'>
                     <p className='text-center'>Power</p>
-                    <div className='outer-select'>
+                    <div className='outer-select' onClick={changePower}>
                       <div className='inner-select' style={powerSlider} />
                     </div>
                   </div>
@@ -64,8 +90,8 @@ const DrumMachine = () => {
                   </div>
                   <div className='control'>
                     <p className='text-center'>Bank</p>
-                    <div className='outer-select'>
-                      <div className='inner-select' style={powerSlider} />
+                    <div className='outer-select' onClick={changeBank}>
+                      <div className='inner-select' style={bankSlider} />
                     </div>
                   </div>
                 </div>
