@@ -10,6 +10,7 @@ const DrumMachine = () => {
   const [currentPadBank, setCurrentPadBank] = useState(bankOne);
   const [volume, SetVolume] = useState(0.5);
   const [currentPadId, setCurrentPadId] = useState('');
+  const [currentKey, setCurrentKey] = useState(false);
 
   const changePower = () => {
     setPower((current) => !current);
@@ -41,6 +42,15 @@ const DrumMachine = () => {
           float: 'left',
         };
 
+  const keyUpHandler = (event) => {
+    const { key } = event;
+    setCurrentKey(key);
+  };
+
+  useEffect(() => {
+    document.addEventListener('keyup', keyUpHandler, false);
+  }, []);
+
   const playAudio = ({ audio, id }) => {
     if (power) {
       setCurrentPadId(id);
@@ -50,13 +60,24 @@ const DrumMachine = () => {
     }
   };
 
-  const Pad = ({ playHandler, pad }) => {
+  const Pad = ({ currentKey, pad, playHandler }) => {
     const [active, setActive] = useState(false);
+    const [key, setKey] = useState(currentKey);
+
+    useEffect(() => {
+      if (key && key.toLowerCase() === pad.keyTrigger.toLowerCase()) {
+        setActive(true);
+      }
+    }, [key, pad]);
 
     useEffect(() => {
       if (active) {
         playHandler({ audio: pad.url, id: pad.id });
-        setTimeout(() => setActive(false), 100);
+        setTimeout(() => {
+          setCurrentKey(false);
+          setActive(false);
+        }, 100);
+        setKey(false);
       }
     }, [active, playHandler, pad]);
 
@@ -109,7 +130,12 @@ const DrumMachine = () => {
               <Col xs={12} md={6}>
                 <div className='drum-pad-container'>
                   {currentPadBank.map((pad) => (
-                    <Pad key={pad.id} playHandler={playAudio} pad={pad} />
+                    <Pad
+                      key={pad.id}
+                      playHandler={playAudio}
+                      pad={pad}
+                      currentKey={currentKey}
+                    />
                   ))}
                 </div>
               </Col>
