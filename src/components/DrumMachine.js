@@ -43,12 +43,12 @@ const DrumMachine = () => {
         };
 
   const keyUpHandler = (event) => {
-    const { key } = event;
-    setCurrentKey(key);
+    const { keyCode } = event;
+    setCurrentKey(keyCode);
   };
 
   useEffect(() => {
-    document.addEventListener('keyup', keyUpHandler, false);
+    document.addEventListener('keydown', keyUpHandler, false);
   }, []);
 
   const playAudio = ({ audio, id }) => {
@@ -60,19 +60,27 @@ const DrumMachine = () => {
     }
   };
 
-  const Pad = ({ currentKey, pad, playHandler }) => {
+  const updateDisplay = (padId) => {
+    setCurrentPadBank(padId.replace(/-/g, ' '));
+  };
+
+  const Pad = ({ currentKey, pad, playHandler, updateDisplay }) => {
     const [active, setActive] = useState(false);
     const [key, setKey] = useState(currentKey);
 
     useEffect(() => {
-      if (key && key.toLowerCase() === pad.keyTrigger.toLowerCase()) {
+      if (key && key === pad.keyCode) {
         setActive(true);
       }
     }, [key, pad]);
 
     useEffect(() => {
       if (active) {
-        playHandler({ audio: pad.url, id: pad.id });
+        //playHandler({ audio: pad.url, id: pad.id });
+        updateDisplay(pad.id);
+        const sound = document.getElementById(pad.keyTrigger);
+        sound.currentTime = 0;
+        sound.play();
         setTimeout(() => {
           setCurrentKey(false);
           setActive(false);
@@ -90,6 +98,7 @@ const DrumMachine = () => {
         className={`drum-pad ${
           active ? 'activeStyle' : 'inactiveStyle'
         } text-center`}
+        id={pad.id}
         onClick={() => clickHandler()}
       >
         <audio
@@ -117,7 +126,7 @@ const DrumMachine = () => {
             minHeight: '100vh',
           }}
         >
-          <Col xs={12} md={8} lg={6} className='drum-machine'>
+          <Col xs={12} md={8} lg={6} className='drum-machine' id='drum-machine'>
             <p className='text-end title'>
               FCC
               <FontAwesomeIcon
@@ -135,6 +144,7 @@ const DrumMachine = () => {
                       playHandler={playAudio}
                       pad={pad}
                       currentKey={currentKey}
+                      updateDisplay={updateDisplay}
                     />
                   ))}
                 </div>
