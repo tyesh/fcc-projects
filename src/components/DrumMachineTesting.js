@@ -81,6 +81,7 @@ const DrumMachineTesting = () => {
                       keyTrigger={pad.keyTrigger}
                       power={power}
                       updateDisplay={updateDisplay}
+                      volume={volume}
                     />
                   ))}
                 </div>

@@ -1,22 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
-const padStyleDefault = {
-  //height: 77,
-  //marginTop: 13,
-  backgroundColor: 'grey',
-  boxShadow: '0 3px grey',
-};
-
 const activeStyle = {
   backgroundColor: 'orange',
   boxShadow: '0 3px orange',
-  //height: 77,
-  //marginTop: 13,
 };
 
 const inactiveStyle = {
   backgroundColor: 'grey',
-  //marginTop: 10,
   boxShadow: '3px 3px 5px black',
 };
 
@@ -25,32 +15,22 @@ const DrumPad = ({
   clipId,
   keyCode,
   keyTrigger,
-  power,
+  power = true,
   updateDisplay,
+  volume = 0.5,
 }) => {
   const [padStyle, setPadStyle] = useState(inactiveStyle);
 
-  const activatePad = () => {
-    if (power) {
-      if (padStyle.backgroundColor === 'orange') {
-        setPadStyle(inactiveStyle);
-      } else {
-        setPadStyle(activeStyle);
-      }
-    } else if (padStyle.backgroundColor === 'orange') {
-      setPadStyle(inactiveStyle);
-    } else {
-      setPadStyle(padStyleDefault);
-    }
-  };
-
   const playSound = () => {
-    const sound = document.getElementById(keyTrigger);
-    sound.currentTime = 0;
-    sound.play();
-    activatePad();
-    setTimeout(() => activatePad(), 100);
-    updateDisplay(clipId.replace(/-/g, ' '));
+    setPadStyle(activeStyle);
+    setTimeout(() => setPadStyle(inactiveStyle), 100);
+    if (power) {
+      const sound = document.getElementById(keyTrigger);
+      sound.currentTime = 0;
+      sound.volume = volume;
+      sound.play();
+      updateDisplay(clipId.replace(/-/g, ' '));
+    }
   };
 
   const handleKeyPress = (e) => {
@@ -64,10 +44,15 @@ const DrumPad = ({
     return () => {
       document.removeEventListener('keydown', handleKeyPress);
     };
-  }, [handleKeyPress]);
+  }, [power, volume]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div className='drum-pad' id={clipId} onClick={playSound} style={padStyle}>
+    <div
+      className='drum-pad text-center'
+      id={clipId}
+      onClick={playSound}
+      style={padStyle}
+    >
       <audio className='clip' id={keyTrigger} src={clip} />
       {keyTrigger}
     </div>
