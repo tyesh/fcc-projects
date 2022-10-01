@@ -61,7 +61,7 @@ const DrumMachine = () => {
   };
 
   const updateDisplay = (padId) => {
-    setCurrentPadBank(padId.replace(/-/g, ' '));
+    setCurrentPadId(padId.replace(/-/g, ' '));
   };
 
   const Pad = ({ currentKey, pad, playHandler, updateDisplay }) => {
@@ -87,7 +87,7 @@ const DrumMachine = () => {
         }, 100);
         setKey(false);
       }
-    }, [active, playHandler, pad]);
+    }, [active, playHandler, pad, updateDisplay]);
 
     const clickHandler = () => {
       setActive(true);
