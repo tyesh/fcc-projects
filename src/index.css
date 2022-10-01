@@ -236,3 +236,19 @@
   box-sizing: border-box;
   font-weight: bold;
 }
+
+/*--------------Calculator----------------*/
+
+.cal-layout {
+  background-color: var(--silver);
+  border: 1px #000 solid;
+}
+
+.cal-layout .calculator {
+  max-width: 320px;
+}
+
+.current-operation {
+  color: var(--concrete);
+  text-align: right;
+}
