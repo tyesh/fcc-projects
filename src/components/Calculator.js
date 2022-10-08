@@ -210,7 +210,11 @@ const Calculator = () => {
                 >
                   0
                 </div>
-                <div className='key-operation' id='decimal'>
+                <div
+                  className='key-operation'
+                  id='decimal'
+                  onClick={() => inputHandler('.')}
+                >
                   ,
                 </div>
               </div>
