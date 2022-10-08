@@ -3,7 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import bgImage from '../resources/bg/calculatorbg.jpg';
 
 const Calculator = () => {
-  const [history, setHistory] = useState(['0']);
+  const [history, setHistory] = useState([0]);
 
   useEffect(() => {
     console.log(history);
@@ -14,46 +14,44 @@ const Calculator = () => {
       setHistory((current) => {
         let aux = [...current];
         const length = aux.length;
-        if (aux[length - 1].length < 13) {
-          switch (aux[length - 1]) {
-            case '0':
-              aux[aux.length - 1] = input.toString();
-              break;
-            case '+':
-            case '-':
-            case '*':
-            case '/':
-              aux.push(input);
-              break;
-            default:
-              aux[length - 1] = aux[length - 1] + input.toString();
-              break;
-          }
-          return aux;
-        } else {
-          return ['MAX_CHARACTER_LIMIT'];
+        switch (aux[length - 1]) {
+          case 0:
+            aux[aux.length - 1] = input;
+            break;
+          case '+':
+          case '-':
+          case '*':
+          case '/':
+            aux.push(input);
+            break;
+          default:
+            aux[length - 1] = parseFloat(
+              aux[length - 1].toString() + input.toString()
+            );
+            break;
         }
+        return aux;
       });
     } else {
       setHistory((current) => {
         let aux = [...current];
         const length = aux.length;
-        if (Number.isInteger(parseInt(aux[length - 1]))) {
+        if (Number.isInteger(aux[length - 1])) {
           if (length >= 3) {
-            const operatorA = parseFloat(aux[length - 3]);
-            const operatorB = parseFloat(aux[length - 1]);
+            const operatorA = aux[length - 3];
+            const operatorB = aux[length - 1];
             switch (aux[length - 2]) {
               case '+':
-                aux = [(operatorA + operatorB).toString()];
+                aux = [operatorA + operatorB];
                 break;
               case '-':
-                aux = [(operatorA - operatorB).toString()];
+                aux = [operatorA - operatorB];
                 break;
               case '*':
-                aux = [(operatorA * operatorB).toString()];
+                aux = [operatorA * operatorB];
                 break;
               case '/':
-                aux = [(operatorA / operatorB).toString()];
+                aux = [operatorA / operatorB];
                 break;
               default:
                 break;
@@ -69,7 +67,7 @@ const Calculator = () => {
   };
 
   const clearHandler = () => {
-    setHistory(['0']);
+    setHistory([0]);
   };
 
   return (
@@ -96,7 +94,7 @@ const Calculator = () => {
           </Col>
           <Col xs={12} md={6} className='cal-layout'>
             <div className='calculator'>
-              <div className='current-operation'>{history.join(' ')}=</div>
+              <div className='current-operation'>{history.join(' ')}</div>
               <div className='result-operation' id='display'>
                 {Number.isInteger(parseInt(history[history.length - 1]))
                   ? history[history.length - 1]
@@ -201,7 +199,7 @@ const Calculator = () => {
                 <div
                   className='key-equal'
                   id='equals'
-                  onClick={() => inputHandler(9)}
+                  onClick={() => inputHandler('=')}
                 >
                   =
                 </div>
