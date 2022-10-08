@@ -13,21 +13,26 @@ const Calculator = () => {
     if (typeof input === 'number') {
       setHistory((current) => {
         let aux = [...current];
-        switch (aux[current.length - 1]) {
-          case '0':
-            aux[aux.length - 1] = input.toString();
-            break;
-          case '+':
-          case '-':
-          case '*':
-          case '/':
-            aux.push(input);
-            break;
-          default:
-            aux[aux.length - 1] = aux[aux.length - 1] + input.toString();
-            break;
+        const length = aux.length;
+        if (aux[length - 1].length < 13) {
+          switch (aux[length - 1]) {
+            case '0':
+              aux[aux.length - 1] = input.toString();
+              break;
+            case '+':
+            case '-':
+            case '*':
+            case '/':
+              aux.push(input);
+              break;
+            default:
+              aux[length - 1] = aux[length - 1] + input.toString();
+              break;
+          }
+          return aux;
+        } else {
+          return ['MAX_CHARACTER_LIMIT'];
         }
-        return aux;
       });
     } else {
       setHistory((current) => {
