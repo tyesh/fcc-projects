@@ -24,9 +24,11 @@ const Calculator = () => {
           case '/':
             aux.push(input);
             break;
+          case '=':
+            aux = [input];
+            break;
           default:
             if (typeof aux[length - 1] === 'string') {
-              console.log(aux[length - 1] + input);
               aux[length - 1] = parseFloat(aux[length - 1] + input);
             } else {
               aux[length - 1] = parseFloat(
@@ -42,11 +44,9 @@ const Calculator = () => {
         let aux = [...current];
         const length = aux.length;
         if (Number.isNaN(parseFloat(aux[length - 1]))) {
-          console.log('B');
           aux[length - 1] = input;
           return aux;
         } else {
-          console.log('A');
           if (length >= 3) {
             const operatorA = aux[length - 3];
             const operatorB = aux[length - 1];
@@ -67,6 +67,12 @@ const Calculator = () => {
                 break;
             }
           } else if (input === '.') {
+            if (
+              typeof aux[length - 1] === 'string' &&
+              aux[length - 1].includes('.')
+            ) {
+              return aux;
+            }
             aux[length - 1] = aux[length - 1] + '.';
             return aux;
           }
