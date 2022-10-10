@@ -25,9 +25,14 @@ const Calculator = () => {
             aux.push(input);
             break;
           default:
-            aux[length - 1] = parseFloat(
-              aux[length - 1].toString() + input.toString()
-            );
+            if (typeof aux[length - 1] === 'string') {
+              console.log(aux[length - 1] + input);
+              aux[length - 1] = parseFloat(aux[length - 1] + input);
+            } else {
+              aux[length - 1] = parseFloat(
+                aux[length - 1].toString() + input.toString()
+              );
+            }
             break;
         }
         return aux;
@@ -36,7 +41,12 @@ const Calculator = () => {
       setHistory((current) => {
         let aux = [...current];
         const length = aux.length;
-        if (Number.isInteger(aux[length - 1])) {
+        if (Number.isNaN(parseFloat(aux[length - 1]))) {
+          console.log('B');
+          aux[length - 1] = input;
+          return aux;
+        } else {
+          console.log('A');
           if (length >= 3) {
             const operatorA = aux[length - 3];
             const operatorB = aux[length - 1];
@@ -56,11 +66,11 @@ const Calculator = () => {
               default:
                 break;
             }
+          } else if (input === '.') {
+            aux[length - 1] = aux[length - 1] + '.';
+            return aux;
           }
           return [...aux, input];
-        } else {
-          aux[length - 1] = input;
-          return aux;
         }
       });
     }
@@ -96,9 +106,9 @@ const Calculator = () => {
             <div className='calculator'>
               <div className='current-operation'>{history.join(' ')}</div>
               <div className='result-operation' id='display'>
-                {Number.isInteger(parseInt(history[history.length - 1]))
-                  ? history[history.length - 1]
-                  : history[history.length - 2]}
+                {Number.isNaN(parseFloat(history[history.length - 1]))
+                  ? history[history.length - 2]
+                  : history[history.length - 1]}
               </div>
               <div className='keys-containter'>
                 <div className='key-ac' id='clear' onClick={clearHandler}>
