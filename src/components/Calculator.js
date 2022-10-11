@@ -1,13 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import bgImage from '../resources/bg/calculatorbg.jpg';
 
 const Calculator = () => {
-  const [history, setHistory] = useState([0]);
-
-  useEffect(() => {
-    console.log(history);
-  }, [history]);
+  const [history, setHistory] = useState(['0']);
 
   const inputHandler = (input) => {
     if (typeof input === 'number') {
@@ -15,26 +11,26 @@ const Calculator = () => {
         let aux = [...current];
         const length = aux.length;
         switch (aux[length - 1]) {
-          case 0:
-            aux[aux.length - 1] = input;
+          case '0':
+            aux[aux.length - 1] = input.toString();
             break;
           case '+':
-          case '-':
           case '*':
           case '/':
-            aux.push(input);
+            aux.push(input.toString());
             break;
           case '=':
-            aux = [input];
+            aux = [input.toString()];
+            break;
+          case '-':
+            if (['+', '*', '/'].includes(aux[length - 2])) {
+              aux[length - 1] = aux[length - 1] + input;
+            } else {
+              aux.push(input.toString());
+            }
             break;
           default:
-            if (typeof aux[length - 1] === 'string') {
-              aux[length - 1] = parseFloat(aux[length - 1] + input);
-            } else {
-              aux[length - 1] = parseFloat(
-                aux[length - 1].toString() + input.toString()
-              );
-            }
+            aux[length - 1] = aux[length - 1] + input;
             break;
         }
         return aux;
@@ -44,37 +40,37 @@ const Calculator = () => {
         let aux = [...current];
         const length = aux.length;
         if (Number.isNaN(parseFloat(aux[length - 1]))) {
-          aux[length - 1] = input;
-          return aux;
+          if (input === '-' && ['+', '*', '/'].includes(aux[length - 1])) {
+            return [...aux, '-'];
+          }
+          aux = current.filter((item) => !Number.isNaN(parseFloat(item)));
+          return [...aux, input];
         } else {
-          if (length >= 3) {
-            const operatorA = aux[length - 3];
-            const operatorB = aux[length - 1];
+          if (input === '.') {
+            if (aux[length - 1].includes('.')) {
+              return aux;
+            }
+            aux[length - 1] = aux[length - 1] + input;
+            return aux;
+          } else if (length >= 3) {
+            const operatorA = parseFloat(aux[length - 3]);
+            const operatorB = parseFloat(aux[length - 1]);
             switch (aux[length - 2]) {
               case '+':
-                aux = [operatorA + operatorB];
+                aux = [(operatorA + operatorB).toString()];
                 break;
               case '-':
-                aux = [operatorA - operatorB];
+                aux = [(operatorA - operatorB).toString()];
                 break;
               case '*':
-                aux = [operatorA * operatorB];
+                aux = [(operatorA * operatorB).toString()];
                 break;
               case '/':
-                aux = [operatorA / operatorB];
+                aux = [(operatorA / operatorB).toString()];
                 break;
               default:
                 break;
             }
-          } else if (input === '.') {
-            if (
-              typeof aux[length - 1] === 'string' &&
-              aux[length - 1].includes('.')
-            ) {
-              return aux;
-            }
-            aux[length - 1] = aux[length - 1] + '.';
-            return aux;
           }
           return [...aux, input];
         }
@@ -83,7 +79,7 @@ const Calculator = () => {
   };
 
   const clearHandler = () => {
-    setHistory([0]);
+    setHistory(['0']);
   };
 
   return (
@@ -231,7 +227,7 @@ const Calculator = () => {
                   id='decimal'
                   onClick={() => inputHandler('.')}
                 >
-                  ,
+                  .
                 </div>
               </div>
             </div>
