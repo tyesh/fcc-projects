@@ -257,12 +257,14 @@
 .current-operation {
   color: var(--wet-asphalt);
   text-align: right;
+  padding: 0 10px;
 }
 
 .result-operation {
   color: #000;
   text-align: right;
   font-size: 3em;
+  padding: 0 10px;
 }
 
 .keys-containter {

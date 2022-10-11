@@ -94,14 +94,18 @@ const Calculator = () => {
         <Row
           className='justify-content-center align-items-center g-0'
           style={{
-            minHeight: '100vh',
+            minHeight: '80vh',
           }}
         >
-          <Col className='text-center' xs={12}>
+          <Col
+            className='d-flex flex-column justify-content-center align-items-center'
+            xs={12}
+          >
             <h1>FCC Calculator</h1>
-            <p>
+            <p style={{ maxWidth: 500 }} className='text-center'>
               A simple online calculator for FCC projects, based o the Windows
-              calculator design.
+              calculator design. For this example the Immediate Execution Logic
+              is used.
             </p>
           </Col>
           <Col xs={12} md={6} className='cal-layout'>
