@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Calculator from './components/Calculator';
+import Clock from './components/Clock';
 import DrumMachine from './components/DrumMachine';
 import MarkdownPreviewer from './components/MarkdownPreviewer';
 import QuotesPage from './components/QuotesPage';
@@ -13,6 +14,7 @@ const App = () => {
         <Route path='/markdown' element={<MarkdownPreviewer />} />
         <Route path='/drummachine' element={<DrumMachine />} />
         <Route path='/calculator' element={<Calculator />} />
+        <Route path='/clock' element={<Clock />} />
       </Routes>
     </BrowserRouter>
   );

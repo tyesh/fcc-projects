@@ -325,3 +325,28 @@
   font-weight: bold;
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
+
+/*------------Clock styles-------------*/
+
+.clock-layout {
+  font-size: 1.8em;
+  color: #fff;
+  /*background-color: var(--clouds);*/
+}
+
+.arrowBtn {
+  color: #fff;
+  cursor: pointer;
+}
+
+.timer {
+  /*font-size: 1.8em;*/
+  border: 6px solid var(--midnight-blue);
+  border-radius: 20px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.timer .label {
+  font-size: 1.8em;
+}
