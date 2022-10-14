@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -11,6 +11,9 @@ import {
 import bgImage from '../resources/bg/clockbg.jpg';
 
 const Clock = () => {
+  const [breackLength, setBreakLength] = useState(5);
+  const [sessionLenth, setSessionLength] = useState(25);
+
   return (
     <main
       style={{
@@ -32,6 +35,26 @@ const Clock = () => {
               </Card.Header>
               <Card.Body>
                 <Row>
+                  <Col xs={6}>
+                    <p
+                      style={{ margin: '0' }}
+                      id='break-label'
+                      className='text-center h3'
+                    >
+                      Break Length
+                    </p>
+                  </Col>
+                  <Col xs={6}>
+                    <p
+                      style={{ margin: '0' }}
+                      id='session-label'
+                      className='text-center h3'
+                    >
+                      Session Length
+                    </p>
+                  </Col>
+                </Row>
+                <Row>
                   <Col
                     sm={6}
                     className='d-flex flex-row justify-content-center align-items-center'
@@ -41,14 +64,32 @@ const Clock = () => {
                       icon={faArrowDown}
                       color='#000'
                       className='arrowBtn'
-                      //onClick={() => setEditorMax(!editorMax)}
+                      id='break-decrement'
+                      onClick={() =>
+                        setBreakLength((current) => {
+                          if (current > 0) {
+                            return current - 1;
+                          }
+                          return 0;
+                        })
+                      }
                     />
-                    <p style={{ margin: '0' }}>Break Length</p>
+                    <p style={{ margin: '0' }} id='break-length' className='h3'>
+                      {breackLength}
+                    </p>
                     <FontAwesomeIcon
                       icon={faArrowUp}
                       color='#000'
                       className='arrowBtn'
-                      //onClick={() => setEditorMax(!editorMax)}
+                      id='break-increment'
+                      onClick={() =>
+                        setBreakLength((current) => {
+                          if (current < 60) {
+                            return current + 1;
+                          }
+                          return current;
+                        })
+                      }
                     />
                   </Col>
                   <Col
@@ -60,21 +101,45 @@ const Clock = () => {
                       icon={faArrowDown}
                       color='#000'
                       className='arrowBtn'
-                      //onClick={() => setEditorMax(!editorMax)}
+                      id='session-decrement'
+                      onClick={() =>
+                        setSessionLength((current) => {
+                          if (current > 0) {
+                            return current - 1;
+                          }
+                          return 0;
+                        })
+                      }
                     />
-                    <p style={{ margin: '0' }}>Session Length</p>
+                    <p
+                      style={{ margin: '0' }}
+                      id='session-length'
+                      className='h3'
+                    >
+                      {sessionLenth}
+                    </p>
                     <FontAwesomeIcon
                       icon={faArrowUp}
                       color='#000'
                       className='arrowBtn'
-                      //onClick={() => setEditorMax(!editorMax)}
+                      id='session-increment'
+                      onClick={() =>
+                        setSessionLength((current) => {
+                          if (current < 60) {
+                            return current + 1;
+                          }
+                          return current;
+                        })
+                      }
                     />
                   </Col>
                 </Row>
                 <Row className='justify-content-center'>
                   <Col xs={6} className='timer text-center'>
-                    <h2>Session</h2>
-                    <p className='label'>25:00</p>
+                    <h2 id='timer-label'>Session</h2>
+                    <p className='h3' id='time-left'>
+                      25:00
+                    </p>
                   </Col>
                 </Row>
                 <Row className='justify-content-center'>
