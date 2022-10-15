@@ -329,25 +329,17 @@
 /*------------Clock styles-------------*/
 
 .clock-layout {
-  font-size: 1.8em;
   color: #fff;
-  /*background-color: var(--clouds);*/
 }
 
 .arrowBtn {
-  /*color: #fff;*/
   margin: 0 10px;
   cursor: pointer;
 }
 
 .timer {
-  /*font-size: 1.8em;*/
   border: 6px solid var(--midnight-blue);
   border-radius: 20px;
   padding: 20px;
   margin-top: 20px;
-}
-
-.timer .label {
-  font-size: 1.8em;
 }
