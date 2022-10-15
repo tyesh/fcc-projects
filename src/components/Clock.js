@@ -55,7 +55,11 @@ const Clock = () => {
   const resetHandler = () => {
     setBreakLength(5);
     setSessionLength(25);
-    setTimeLeft('25:00');
+    setTimeLeft({
+      minutes: 25,
+      seconds: 0,
+      currentTimer: 'session',
+    });
   };
 
   const lengthsHandler = (lengthType, operation) => {
