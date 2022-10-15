@@ -11,13 +11,14 @@ import {
 import bgImage from '../resources/bg/clockbg.jpg';
 
 const Clock = () => {
-  const [breackLength, setBreakLength] = useState(5);
+  const [breakLength, setBreakLength] = useState(5);
   const [sessionLenth, setSessionLength] = useState(25);
-  const [timeLeft, setTimeLeft] = useState({ minutes: 25, seconds: 0 });
-  const [clockStatus, setClockStatus] = useState({
-    isPlaying: false,
+  const [timeLeft, setTimeLeft] = useState({
+    minutes: 25,
+    seconds: 0,
     currentTimer: 'session',
   });
+  const [clockStatus, setClockStatus] = useState({ isPlaying: false });
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -25,6 +26,7 @@ const Clock = () => {
         if (clockStatus.isPlaying) {
           let mins = current.minutes;
           let secs = current.seconds;
+          let timer = current.currentTimer;
           if (secs === 0) {
             secs = 59;
             mins = mins - 1;
@@ -32,20 +34,70 @@ const Clock = () => {
             secs = secs - 1;
           }
           if (mins < 0) {
+            if (current.currentTimer === 'session') {
+              timer = 'break';
+              mins = breakLength;
+            } else {
+              timer = 'session';
+              mins = sessionLenth;
+            }
+            secs = 0;
           }
-          return { minutes: mins, seconds: secs };
+          return { minutes: mins, seconds: secs, currentTimer: timer };
         } else {
           return current;
         }
       });
     }, 1000);
     return () => clearInterval(interval);
-  }, [clockStatus]);
+  }, [clockStatus, breakLength, sessionLenth]);
 
   const resetHandler = () => {
     setBreakLength(5);
     setSessionLength(25);
     setTimeLeft('25:00');
+  };
+
+  const lengthsHandler = (lengthType, operation) => {
+    if (lengthType === 'break') {
+      setBreakLength((current) => {
+        let length = current;
+        if (operation === 'increment') {
+          if (length < 60) {
+            length = length + 1;
+          }
+        } else if (operation === 'decrement') {
+          if (length > 1) {
+            length = length - 1;
+          }
+        }
+        if (timeLeft.currentTimer === 'break') {
+          setTimeLeft((current) => {
+            return { ...current, minutes: length };
+          });
+        }
+        return length;
+      });
+    } else if (lengthType === 'session') {
+      setSessionLength((current) => {
+        let length = current;
+        if (operation === 'increment') {
+          if (length < 60) {
+            length = length + 1;
+          }
+        } else if (operation === 'decrement') {
+          if (length > 1) {
+            length = length - 1;
+          }
+        }
+        if (timeLeft.currentTimer === 'session') {
+          setTimeLeft((current) => {
+            return { ...current, minutes: length };
+          });
+        }
+        return length;
+      });
+    }
   };
 
   const formatTime = (time) => {
@@ -107,17 +159,10 @@ const Clock = () => {
                       className='arrowBtn'
                       id='break-decrement'
                       size='2x'
-                      onClick={() =>
-                        setBreakLength((current) => {
-                          if (current > 1) {
-                            return current - 1;
-                          }
-                          return 1;
-                        })
-                      }
+                      onClick={() => lengthsHandler('break', 'decrement')}
                     />
                     <p style={{ margin: '0' }} id='break-length' className='h3'>
-                      {breackLength}
+                      {breakLength}
                     </p>
                     <FontAwesomeIcon
                       icon={faArrowUp}
@@ -125,14 +170,7 @@ const Clock = () => {
                       className='arrowBtn'
                       id='break-increment'
                       size='2x'
-                      onClick={() =>
-                        setBreakLength((current) => {
-                          if (current < 60) {
-                            return current + 1;
-                          }
-                          return current;
-                        })
-                      }
+                      onClick={() => lengthsHandler('break', 'increment')}
                     />
                   </Col>
                   <Col
@@ -146,14 +184,7 @@ const Clock = () => {
                       className='arrowBtn'
                       id='session-decrement'
                       size='2x'
-                      onClick={() =>
-                        setSessionLength((current) => {
-                          if (current > 1) {
-                            return current - 1;
-                          }
-                          return 1;
-                        })
-                      }
+                      onClick={() => lengthsHandler('session', 'decrement')}
                     />
                     <p
                       style={{ margin: '0' }}
@@ -168,21 +199,16 @@ const Clock = () => {
                       className='arrowBtn'
                       id='session-increment'
                       size='2x'
-                      onClick={() =>
-                        setSessionLength((current) => {
-                          if (current < 60) {
-                            return current + 1;
-                          }
-                          return current;
-                        })
-                      }
+                      onClick={() => lengthsHandler('session', 'increment')}
                     />
                   </Col>
                 </Row>
                 <Row className='justify-content-center'>
                   <Col xs={6} className='timer text-center'>
                     <p id='timer-label' className='h3'>
-                      Session
+                      {timeLeft.currentTimer === 'session'
+                        ? 'Session'
+                        : 'Break'}
                     </p>
                     <p className='h1' id='time-left'>
                       {`${formatTime(timeLeft.minutes)}:${formatTime(
@@ -203,7 +229,6 @@ const Clock = () => {
                         setClockStatus((current) => {
                           return {
                             isPlaying: !current.isPlaying,
-                            currentTimer: current.currentTimer,
                           };
                         })
                       }
