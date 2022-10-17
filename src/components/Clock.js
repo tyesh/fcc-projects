@@ -34,6 +34,10 @@ const Clock = () => {
             secs = secs - 1;
           }
           if (mins < 0) {
+            const sound = document.getElementById('beep');
+            sound.currentTime = 0;
+            sound.volume = 1;
+            sound.play();
             if (current.currentTimer === 'session') {
               timer = 'break';
               mins = breakLength;
@@ -60,6 +64,11 @@ const Clock = () => {
       seconds: 0,
       currentTimer: 'session',
     });
+    setClockStatus({ isPlaying: false });
+    const sound = document.getElementById('beep');
+    sound.pause();
+    sound.currentTime = 0;
+    sound.volume = 1;
   };
 
   const lengthsHandler = (lengthType, operation) => {
@@ -157,39 +166,48 @@ const Clock = () => {
                     className='d-flex flex-row justify-content-center align-items-center'
                     style={{ marginBottom: 0 }}
                   >
-                    <FontAwesomeIcon
-                      icon={faArrowDown}
-                      color='#000'
-                      className='arrowBtn'
-                      id='break-decrement'
-                      size='2x'
+                    <button
                       onClick={() => lengthsHandler('break', 'decrement')}
-                    />
+                      id='break-decrement'
+                      className='arrowBtn'
+                    >
+                      <FontAwesomeIcon
+                        icon={faArrowDown}
+                        color='#000'
+                        size='2x'
+                      />
+                    </button>
                     <p style={{ margin: '0' }} id='break-length' className='h3'>
                       {breakLength}
                     </p>
-                    <FontAwesomeIcon
-                      icon={faArrowUp}
-                      color='#000'
-                      className='arrowBtn'
-                      id='break-increment'
-                      size='2x'
+                    <button
                       onClick={() => lengthsHandler('break', 'increment')}
-                    />
+                      id='break-increment'
+                      className='arrowBtn'
+                    >
+                      <FontAwesomeIcon
+                        icon={faArrowUp}
+                        color='#000'
+                        size='2x'
+                      />
+                    </button>
                   </Col>
                   <Col
                     sm={6}
                     className='d-flex flex-row justify-content-center align-items-center'
                     style={{ marginBottom: 0 }}
                   >
-                    <FontAwesomeIcon
-                      icon={faArrowDown}
-                      color='#000'
+                    <button
                       className='arrowBtn'
                       id='session-decrement'
-                      size='2x'
                       onClick={() => lengthsHandler('session', 'decrement')}
-                    />
+                    >
+                      <FontAwesomeIcon
+                        icon={faArrowDown}
+                        color='#000'
+                        size='2x'
+                      />
+                    </button>
                     <p
                       style={{ margin: '0' }}
                       id='session-length'
@@ -197,18 +215,25 @@ const Clock = () => {
                     >
                       {sessionLenth}
                     </p>
-                    <FontAwesomeIcon
-                      icon={faArrowUp}
-                      color='#000'
+                    <button
                       className='arrowBtn'
                       id='session-increment'
-                      size='2x'
                       onClick={() => lengthsHandler('session', 'increment')}
-                    />
+                    >
+                      <FontAwesomeIcon
+                        icon={faArrowUp}
+                        color='#000'
+                        size='2x'
+                      />
+                    </button>
                   </Col>
                 </Row>
                 <Row className='justify-content-center'>
                   <Col xs={6} className='timer text-center'>
+                    <audio
+                      id='beep'
+                      src='https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav'
+                    />
                     <p id='timer-label' className='h3'>
                       {timeLeft.currentTimer === 'session'
                         ? 'Session'
@@ -223,11 +248,8 @@ const Clock = () => {
                 </Row>
                 <Row className='justify-content-center'>
                   <Col xs={6} className='d-flex justify-content-center my-3'>
-                    <FontAwesomeIcon
-                      icon={clockStatus.isPlaying ? faPause : faPlay}
-                      color='#000'
+                    <button
                       className='arrowBtn'
-                      size='2x'
                       id='start_stop'
                       onClick={() =>
                         setClockStatus((current) => {
@@ -236,22 +258,27 @@ const Clock = () => {
                           };
                         })
                       }
-                    />
-                    <FontAwesomeIcon
-                      icon={faPause}
-                      color='#000'
+                    >
+                      <FontAwesomeIcon
+                        icon={clockStatus.isPlaying ? faPause : faPlay}
+                        color='#000'
+                        size='2x'
+                      />
+                    </button>
+                    <button className='arrowBtn' onClick={() => resetHandler()}>
+                      <FontAwesomeIcon icon={faPause} color='#000' size='2x' />
+                    </button>
+                    <button
                       className='arrowBtn'
-                      size='2x'
-                      onClick={() => resetHandler()}
-                    />
-                    <FontAwesomeIcon
-                      icon={faRotateRight}
-                      color='#000'
-                      className='arrowBtn'
-                      size='2x'
                       id='reset'
                       onClick={() => resetHandler()}
-                    />
+                    >
+                      <FontAwesomeIcon
+                        icon={faRotateRight}
+                        color='#000'
+                        size='2x'
+                      />
+                    </button>
                   </Col>
                 </Row>
               </Card.Body>

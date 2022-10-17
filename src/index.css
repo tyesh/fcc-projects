@@ -333,6 +333,9 @@
 }
 
 .arrowBtn {
+  background: none;
+  outline: none;
+  border: none;
   margin: 0 10px;
   cursor: pointer;
 }
