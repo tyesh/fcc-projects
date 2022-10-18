@@ -27,7 +27,7 @@ const Home = () => {
             <p>
               To know more about my work, you can visit my personal page&nbsp;
               <a href='https://www.carlosportafolio.com'>here</a>&nbsp;and my
-              github repository for all my fcc projects are&nbsp;
+              github repository for my fcc projects are&nbsp;
               <a href='https://github.com/tyesh/fcc-projects'>here </a>
             </p>
             <h2>Courses</h2>
@@ -79,22 +79,24 @@ const Home = () => {
                 </a>
               </li>
             </ul>
-            <h3>Front End Development Libraries</h3>
+            <h3>JavaScript Algorithms and Data Structures</h3>
             <ul>
               <li>
-                <a href='/quotes'>Build a Random Quote Machine</a>
+                <a href='/js-algotithms#palindrome'>Palindrome Checker</a>
               </li>
               <li>
-                <a href='/markdown'>Build a Markdown Previewer</a>
+                <a href='/js-algotithms#roman'>Roman Numeral Converter</a>
               </li>
               <li>
-                <a href='/drummachine'>Build a Drum Machine</a>
+                <a href='/js-algotithms#caesar'>Caesars Cipher</a>
               </li>
               <li>
-                <a href='/calculator'>Build a JavaScript Calculator</a>
+                <a href='/js-algotithms#telephone'>
+                  Telephone Number Validator
+                </a>
               </li>
               <li>
-                <a href='/clock'>Build a 25 + 5 Clock</a>
+                <a href='/js-algotithms#cash'>Cash Register</a>
               </li>
             </ul>
             <h3>Front End Development Libraries</h3>

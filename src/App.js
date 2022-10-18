@@ -4,6 +4,7 @@ import Calculator from './components/Calculator';
 import Clock from './components/Clock';
 import DrumMachine from './components/DrumMachine';
 import Home from './components/Home';
+import JSAlgotithms from './components/JSAlgotithms';
 import MarkdownPreviewer from './components/MarkdownPreviewer';
 import QuotesPage from './components/QuotesPage';
 
@@ -17,6 +18,7 @@ const App = () => {
         <Route path='/drummachine' element={<DrumMachine />} />
         <Route path='/calculator' element={<Calculator />} />
         <Route path='/clock' element={<Clock />} />
+        <Route path='/js-algotithms' element={<JSAlgotithms />} />
       </Routes>
     </BrowserRouter>
   );
