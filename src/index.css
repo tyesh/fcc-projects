@@ -346,3 +346,9 @@
   padding: 20px;
   margin-top: 20px;
 }
+
+/*-----------Home styles-------------*/
+
+.home-body {
+  color: var(--midnight-blue);
+}
