@@ -4,6 +4,7 @@ import bgImage from '../resources/quotebg.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faTumblr } from '@fortawesome/free-brands-svg-icons';
 import { getRandomQuote, getRandomTechnology } from '../utils/helpers';
+import BreadCrumbComponent from './BreadCrumbComponent';
 
 const QuotesPage = () => {
   const [technology, setTechnology] = useState();
@@ -38,6 +39,7 @@ const QuotesPage = () => {
           }}
         >
           <Col xs={12} md={6}>
+            <BreadCrumbComponent pageTitle={'Build a Random Quote Machine'} />
             <h1
               className='text-center p-3'
               style={{ color: '#fff', lineHeight: '40px', fontSize: '42px' }}

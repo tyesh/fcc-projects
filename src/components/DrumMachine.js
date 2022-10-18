@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { Col, Container, Form, Row } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFreeCodeCamp } from '@fortawesome/free-brands-svg-icons';
-import bgImage from '../resources/bg/drummachinebg.jpg';
 import { bankOne, bankTwo } from '../utils/constants';
 import DrumPad from './DrumPad';
+import BreadCrumbComponent from './BreadCrumbComponent';
+import bgImage from '../resources/bg/dmbg.jpg';
 
 const DrumMachine = () => {
   const [power, setPower] = useState(true);
@@ -54,12 +55,12 @@ const DrumMachine = () => {
       }}
     >
       <Container style={{ minHeight: '100vh' }}>
-        <Row
-          className='justify-content-center align-items-center'
-          style={{
-            minHeight: '100vh',
-          }}
-        >
+        <Row className='justify-content-center align-items-center'>
+          <Col xs={12} className='text-center my-5' style={{ color: '#fff' }}>
+            <BreadCrumbComponent pageTitle={'Build a Random Quote Machine'} />
+            <h1>Drum Machine</h1>
+            <p>A react drum machine component using hooks.</p>
+          </Col>
           <Col xs={12} md={8} lg={6} className='drum-machine' id='drum-machine'>
             <p className='text-end title'>
               FCC

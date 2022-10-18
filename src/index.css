@@ -352,3 +352,7 @@
 .home-body {
   color: var(--midnight-blue);
 }
+
+.bc-item-inactive a {
+  color: var(--sun-flower);
+}

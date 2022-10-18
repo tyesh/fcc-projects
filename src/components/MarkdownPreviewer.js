@@ -7,6 +7,7 @@ import { marked } from 'marked';
 import prismjs from 'prismjs';
 import bgImage from '../resources/bg/markdownbg.jpg';
 import 'prismjs/themes/prism-tomorrow.css';
+import BreadCrumbComponent from './BreadCrumbComponent';
 
 const placeholder = `# Welcome to my React Markdown Previewer!
 
@@ -79,6 +80,7 @@ const MarkdownPreviewer = () => {
       <Container>
         <Row>
           <Col xs={12}>
+            <BreadCrumbComponent pageTitle={'Build a Random Quote Machine'} />
             <div
               className={`editorWrap ${editorMax ? 'maximized' : ''}`}
               hidden={previewerMax}

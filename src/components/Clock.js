@@ -9,6 +9,7 @@ import {
   faRotateRight,
 } from '@fortawesome/free-solid-svg-icons';
 import bgImage from '../resources/bg/clockbg.jpg';
+import BreadCrumbComponent from './BreadCrumbComponent';
 
 const Clock = () => {
   const [breakLength, setBreakLength] = useState(5);
@@ -135,6 +136,13 @@ const Clock = () => {
           }}
         >
           <Col xs={6}>
+            <BreadCrumbComponent pageTitle={'Build a 25 + 5 Clock'} />
+            <h1 className='text-center' style={{ color: '#fff' }}>
+              FCC Clock
+            </h1>
+            <p className='text-center' style={{ color: '#fff' }}>
+              A simple react clock to track session and break time.
+            </p>
             <Card>
               <Card.Header>
                 <h1 className='text-center'>25 + 5 Clock</h1>
@@ -264,9 +272,6 @@ const Clock = () => {
                         color='#000'
                         size='2x'
                       />
-                    </button>
-                    <button className='arrowBtn' onClick={() => resetHandler()}>
-                      <FontAwesomeIcon icon={faPause} color='#000' size='2x' />
                     </button>
                     <button
                       className='arrowBtn'

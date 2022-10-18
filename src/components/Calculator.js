@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import bgImage from '../resources/bg/calculatorbg.jpg';
+import BreadCrumbComponent from './BreadCrumbComponent';
 
 const Calculator = () => {
   const [history, setHistory] = useState(['0']);
@@ -101,6 +102,7 @@ const Calculator = () => {
             className='d-flex flex-column justify-content-center align-items-center'
             xs={12}
           >
+            <BreadCrumbComponent pageTitle={'Build a JavaScript Calculator'} />
             <h1>FCC Calculator</h1>
             <p style={{ maxWidth: 500 }} className='text-center'>
               A simple online calculator for FCC projects, based o the Windows
