@@ -31,6 +31,72 @@ const Home = () => {
               <a href='https://github.com/tyesh/fcc-projects'>here </a>
             </p>
             <h2>Courses</h2>
+            <h3>Responsive Web Design</h3>
+            <ul>
+              <li>
+                <a
+                  href='https://codepen.io/tyesh/pen/OJxepzd'
+                  target='_blank'
+                  rel='noreferrer'
+                >
+                  Build a Tribute Page - Codepen
+                </a>
+              </li>
+              <li>
+                <a
+                  href='https://codepen.io/tyesh/pen/eYGEeWj'
+                  target='_blank'
+                  rel='noreferrer'
+                >
+                  Build a Survey Form - Codepen
+                </a>
+              </li>
+              <li>
+                <a
+                  href='https://codepen.io/tyesh/pen/xxYwggb'
+                  target='_blank'
+                  rel='noreferrer'
+                >
+                  Build a Technical Documentation Page - Codepen
+                </a>
+              </li>
+              <li>
+                <a
+                  href='https://codepen.io/tyesh/pen/ZErGRoM'
+                  target='_blank'
+                  rel='noreferrer'
+                >
+                  Build a Product Landing Page - Codepen
+                </a>
+              </li>
+              <li>
+                <a
+                  href='https://codepen.io/tyesh/pen/yLvYdVx'
+                  target='_blank'
+                  rel='noreferrer'
+                >
+                  Build a Personal Portfolio Webpage - Codepen
+                </a>
+              </li>
+            </ul>
+            <h3>Front End Development Libraries</h3>
+            <ul>
+              <li>
+                <a href='/quotes'>Build a Random Quote Machine</a>
+              </li>
+              <li>
+                <a href='/markdown'>Build a Markdown Previewer</a>
+              </li>
+              <li>
+                <a href='/drummachine'>Build a Drum Machine</a>
+              </li>
+              <li>
+                <a href='/calculator'>Build a JavaScript Calculator</a>
+              </li>
+              <li>
+                <a href='/clock'>Build a 25 + 5 Clock</a>
+              </li>
+            </ul>
             <h3>Front End Development Libraries</h3>
             <ul>
               <li>
