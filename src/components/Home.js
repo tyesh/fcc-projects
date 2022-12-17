@@ -117,6 +117,12 @@ const Home = () => {
                 <a href='/clock'>Build a 25 + 5 Clock</a>
               </li>
             </ul>
+            <h3>Data Visualization</h3>
+            <ul>
+              <li>
+                <a href='/barchart'>Visualize Data with a Bar Chart</a>
+              </li>
+            </ul>
           </Col>
         </Row>
       </Container>

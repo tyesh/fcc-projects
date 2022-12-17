@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import BarChart from './components/BarChart';
 import Calculator from './components/Calculator';
 import Clock from './components/Clock';
 import DrumMachine from './components/DrumMachine';
@@ -19,6 +20,7 @@ const App = () => {
         <Route path='/calculator' element={<Calculator />} />
         <Route path='/clock' element={<Clock />} />
         <Route path='/js-algotithms' element={<JSAlgotithms />} />
+        <Route path='/barchart' element={<BarChart />} />
       </Routes>
     </BrowserRouter>
   );

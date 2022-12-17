@@ -365,3 +365,17 @@
   line-height: 1.2;
   color: #fff;
 }
+
+.bar {
+  background-color: #fff;
+  border-color: #fff;
+  fill: #2980b9;
+}
+
+.bar:hover {
+  fill: #fff;
+}
+
+g {
+  color: #fff;
+}
