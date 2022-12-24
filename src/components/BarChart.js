@@ -77,6 +77,7 @@ const BarChart = () => {
           tooltip.text(event.target.dataset.gdp);
           tooltip.style('left', `${event.pageX + 10}px`);
           tooltip.style('top', `${event.pageY + 15}px`);
+          tooltip.attr('data-date', event.target.dataset.date);
           tooltip.transition().style('opacity', 1);
         })
         .on('mouseout', () => {
@@ -90,7 +91,7 @@ const BarChart = () => {
       svg
         .append('g')
         .call(xAxis)
-        .attr('id', 'x-axix')
+        .attr('id', 'x-axis')
         .attr('transform', `translate (0, ${height - padding})`);
 
       svg
@@ -123,7 +124,9 @@ const BarChart = () => {
             <BreadCrumbComponent
               pageTitle={'Visualize Data with a Bar Chart'}
             />
-            <h1 className='text-center text-white'>United States GDP</h1>
+            <h1 id='title' className='text-center text-white'>
+              United States GDP
+            </h1>
             <div className='d-flex flex-row justify-content-center'>
               <div style={{ maxWidth: 500 }}>
                 <p className='text-white text-center'>
@@ -150,6 +153,7 @@ const BarChart = () => {
           <Col className='d-flex flex-row justify-content-center'>
             <div
               ref={d3Tooltip}
+              id='tooltip'
               style={{
                 position: 'absolute',
                 padding: 4,
