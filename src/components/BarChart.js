@@ -9,6 +9,7 @@ const BarChart = () => {
   const [dataset, setDataset] = useState();
 
   const d3Chart = useRef();
+  const d3Tooltip = useRef();
 
   const datasetUrl =
     'https://raw.githubusercontent.com/FreeCodeCamp/ProjectReferenceData/master/GDP-data.json';
@@ -58,6 +59,8 @@ const BarChart = () => {
         .domain([0, d3.max(values, yAccessor)])
         .range([height - padding, padding]);
 
+      const tooltip = d3.select(d3Tooltip.current);
+
       svg
         .selectAll('rect')
         .data(values)
@@ -69,7 +72,16 @@ const BarChart = () => {
         .attr('data-gdp', yAccessor)
         .attr('height', (item) => heightScale(yAccessor(item)))
         .attr('x', (_item, index) => xScale(index))
-        .attr('y', (item) => height - padding - heightScale(yAccessor(item)));
+        .attr('y', (item) => height - padding - heightScale(yAccessor(item)))
+        .on('mouseover', (event) => {
+          tooltip.text(event.target.dataset.gdp);
+          tooltip.style('left', `${event.pageX + 10}px`);
+          tooltip.style('top', `${event.pageY + 15}px`);
+          tooltip.transition().style('opacity', 1);
+        })
+        .on('mouseout', () => {
+          tooltip.transition().style('opacity', -1);
+        });
 
       const xAxis = d3.axisBottom(xAxisCale);
 
@@ -113,22 +125,40 @@ const BarChart = () => {
             />
             <h1 className='text-center text-white'>United States GDP</h1>
             <div className='d-flex flex-row justify-content-center'>
-              <p className='text-white text-center' style={{ maxWidth: 500 }}>
-                Units: Billions of Dollars Seasonal Adjustment: Seasonally
-                Adjusted Annual Rate Notes: A Guide to the National Income and
-                Product Accounts of the United States (NIPA) - (
-                <a
-                  href='http://www.bea.gov/national/pdf/nipaguid.pdf'
-                  rel='noopener noreferrer'
-                  target='_blank'
-                >
-                  http://www.bea.gov/national/pdf/nipaguid.pdf
-                </a>
-                )
-              </p>
+              <div style={{ maxWidth: 500 }}>
+                <p className='text-white text-center'>
+                  Units: Billions of Dollars
+                </p>
+                <p className='text-white text-center'>
+                  Seasonal Adjustment: Seasonally
+                </p>
+                <p className='text-white text-center'>
+                  Adjusted Annual Rate Notes: A Guide to the National Income and
+                  Product Accounts of the United States (NIPA) - (
+                  <a
+                    href='http://www.bea.gov/national/pdf/nipaguid.pdf'
+                    rel='noopener noreferrer'
+                    target='_blank'
+                  >
+                    http://www.bea.gov/national/pdf/nipaguid.pdf
+                  </a>
+                  )
+                </p>
+              </div>
             </div>
           </Col>
           <Col className='d-flex flex-row justify-content-center'>
+            <div
+              ref={d3Tooltip}
+              style={{
+                position: 'absolute',
+                padding: 4,
+                background: '#fff',
+                border: '1px solid #000',
+                color: '#000',
+                opacity: -1,
+              }}
+            ></div>
             <svg ref={d3Chart} />
           </Col>
         </Row>
