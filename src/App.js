@@ -8,6 +8,7 @@ import Home from './components/Home';
 import JSAlgotithms from './components/JSAlgotithms';
 import MarkdownPreviewer from './components/MarkdownPreviewer';
 import QuotesPage from './components/QuotesPage';
+import Scatterplot from './components/Scatterplot';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path='/clock' element={<Clock />} />
         <Route path='/js-algotithms' element={<JSAlgotithms />} />
         <Route path='/barchart' element={<BarChart />} />
+        <Route path='/scatterplot' element={<Scatterplot />} />
       </Routes>
     </BrowserRouter>
   );

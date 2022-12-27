@@ -122,6 +122,11 @@ const Home = () => {
               <li>
                 <a href='/barchart'>Visualize Data with a Bar Chart</a>
               </li>
+              <li>
+                <a href='/scatterplot'>
+                  Visualize Data with a Scatterplot Graph
+                </a>
+              </li>
             </ul>
           </Col>
         </Row>

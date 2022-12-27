@@ -1,8 +1,8 @@
-import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import axios from 'axios';
 import * as d3 from 'd3';
 import BreadCrumbComponent from './BreadCrumbComponent';
+import { Col, Container, Row } from 'react-bootstrap';
 import Loader from './Loader';
 
 const BarChart = () => {
