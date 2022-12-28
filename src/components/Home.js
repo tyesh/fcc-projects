@@ -127,6 +127,9 @@ const Home = () => {
                   Visualize Data with a Scatterplot Graph
                 </a>
               </li>
+              <li>
+                <a href='/heatmap'>Visualize Data with a Heat Map</a>
+              </li>
             </ul>
           </Col>
         </Row>

@@ -4,6 +4,7 @@ import BarChart from './components/BarChart';
 import Calculator from './components/Calculator';
 import Clock from './components/Clock';
 import DrumMachine from './components/DrumMachine';
+import HeatMap from './components/HeatMap';
 import Home from './components/Home';
 import JSAlgotithms from './components/JSAlgotithms';
 import MarkdownPreviewer from './components/MarkdownPreviewer';
@@ -23,6 +24,7 @@ const App = () => {
         <Route path='/js-algotithms' element={<JSAlgotithms />} />
         <Route path='/barchart' element={<BarChart />} />
         <Route path='/scatterplot' element={<Scatterplot />} />
+        <Route path='/heatmap' element={<HeatMap />} />
       </Routes>
     </BrowserRouter>
   );
