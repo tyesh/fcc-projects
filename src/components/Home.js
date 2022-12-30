@@ -130,6 +130,9 @@ const Home = () => {
               <li>
                 <a href='/heatmap'>Visualize Data with a Heat Map</a>
               </li>
+              <li>
+                <a href='/chroropleth'>D3 Choropleth Map</a>
+              </li>
             </ul>
           </Col>
         </Row>
