@@ -133,6 +133,11 @@ const Home = () => {
               <li>
                 <a href='/chroropleth'>D3 Choropleth Map</a>
               </li>
+              <li>
+                <a href='/treemapdiagram'>
+                  Visualize Data with a Treemap Diagram
+                </a>
+              </li>
             </ul>
           </Col>
         </Row>

@@ -11,6 +11,7 @@ import JSAlgotithms from './components/JSAlgotithms';
 import MarkdownPreviewer from './components/MarkdownPreviewer';
 import QuotesPage from './components/QuotesPage';
 import Scatterplot from './components/Scatterplot';
+import TreemapView from './components/TreemapView';
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
         <Route path='/scatterplot' element={<Scatterplot />} />
         <Route path='/heatmap' element={<HeatMap />} />
         <Route path='/chroropleth' element={<ChroroplethMap />} />
+        <Route path='/treemapdiagram' element={<TreemapView />} />
       </Routes>
     </BrowserRouter>
   );
